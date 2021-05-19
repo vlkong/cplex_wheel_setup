@@ -1,7 +1,10 @@
 # Building wheels from CPLEX
 
-Assuming we have an unix like terminal and Cplex Optimization Studio is installed in `$CPLEX_STUDIO_DIR201`.
-One can build an universal wheel for the CPLEX Python API with a few steps. The universal wheel can be installed
+Let's assume we use an unix like terminal and Cplex Optimization Studio is installed in `$CPLEX_STUDIO_DIR201`.
+
+One can build an universal wheel for the CPLEX Python API with a few shell commands.
+
+The universal wheel can be installed
 on any platform, any python version - but as CPLEX Python API is platform and python version dependent, make
 sure you install the wheel in the same runtime environment.
 
