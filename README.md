@@ -11,7 +11,8 @@ First, you need to install a few python packages needed to build the wheels:
 $ pip install setuptools wheel
 ```
 
-Let's copy the CPLEX Python API source to somewhere we can write to.
+Let's copy the CPLEX Python API source to somewhere we can write to, for example `$HOME/cplex_universal_wheel`.
+
 Assuming python 3.7 and Linux (substitue with your actual python version and COS platform tag)
 ```
 $ cp -r $CPLEX_STUDIO_DIR201/cplex/python/3.7/x86_64-Linux $HOME/cplex_universal_wheel
@@ -24,6 +25,7 @@ import platform
 
 # add this line:
 import setuptools
+
 from distutils.core import setup
 [...]
 ```
@@ -34,6 +36,6 @@ $ python setup.py bdist_wheel
 ```
 
 The resulting wheel is `$HOME/cplex_universal_wheel/dist/cplex-20.1.0.1-py3-none-any.whl` -
-In this example, it is safe to `pip install cplex-20.1.0.1-py3-none-any.whl` on anypython 3.7
+In this example, it is safe to `pip install cplex-20.1.0.1-py3-none-any.whl` on any python 3.7
 and x86_64-Linux.
 
