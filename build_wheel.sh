@@ -4,12 +4,20 @@ CPLEX_DIR=$CPLEX_STUDIO_DIR221
 PYTHON_VERSION=3.8
 PLATFORM=x86-64_osx
 
+if [ -d build ]; then
+	echo "'build' directory already exists. Exiting..."
+	exit 1
+fi
+if [ -d build_wheel_venv ]; then
+	echo "'build_wheel_venv' directory already exists. Exiting..."
+	exit 1
+fi
+
 python -m venv build_wheel_venv
 source build_wheel_venv/bin/activate
 pip install --upgrade pip
 pip install setuptools wheel
 
-rm -rf build
 mkdir build
 cd build
 
@@ -42,3 +50,7 @@ done
 for f in *.whl; do
 	mv $f `echo $f | sed "s/any/$PYTHON_PLATFORM/"`
 done
+
+# Clean after ourselves...
+rm -rf build_wheel_venv
+rm -rf build
